@@ -7,4 +7,4 @@
 
 Project_Name : LotteryTicket
 
-![1528381992179](images\1528381992179.png)
+![1528381992179](images/1528381992179.png)
