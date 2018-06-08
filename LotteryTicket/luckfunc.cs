@@ -11,6 +11,6 @@ namespace LotteryTicket
 {
     public class LuckFunc
     {
-        string[] 
+        
     }
 }
