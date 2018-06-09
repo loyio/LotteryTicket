@@ -85,7 +85,7 @@ namespace LotteryTicket
 
         public void welcome()
         {
-            Console.SetCursorPosition(12, 12);
+            Console.SetCursorPosition(22, 16);
             input_redball();
             input_title("双色球助手");
             input_blueball();
