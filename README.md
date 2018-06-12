@@ -14,6 +14,20 @@ Author(作者) : susmote
 
 <br>
 
+项目目录说明:airplane:
+
+- LotteryTicket  :  双色球项目本地win10系统版（加了很多修饰）
+  - Program.cs  :  主程序文件
+  - init_window.cs  :  初始化窗口类
+  - luckfunc.cs  :  主要功能的类
+- LotteryTicket_easy  :  双色球项目机房win7版（适用于vs2010），完成了基本功能，相比:point_up:的项目简单了很多
+  - Program.cs  :  主程序文件
+  - init_window.cs  :  初始化窗口类
+  - luckfunc.cs  :  主要功能的类
+- images    : 说明文档中的图片
+
+<br>
+
 ### 一.项目配置条件:
 
 - Project_Name（项目名称） : 	LotteryTicket
