@@ -37,10 +37,6 @@ namespace LotteryTicket_easy
                 if (length == res_red_ball.Length)
                     break;
             }
-            foreach (var ball in res_red_ball)
-            {
-                Console.WriteLine(ball);
-            }
             return res_red_ball;
         }
         //获取随机的蓝色号码球
@@ -59,7 +55,6 @@ namespace LotteryTicket_easy
             var random = new Random();
             var index = random.Next(blue_ball.Length);
             res_blue_ball = blue_ball[index];
-            Console.WriteLine(res_blue_ball);
             return res_blue_ball;
         }
 
@@ -67,6 +62,27 @@ namespace LotteryTicket_easy
         public bool[] compare_right(string[] input_ball, string[] right_choose)
         {
             var right_ball = new bool[7];
+
+            //判断蓝色球是否正确
+            if (input_ball[6] == right_choose[6]) 
+            {
+                right_ball[6] = true;
+            }
+            for (var i = 0; i < input_ball.Length - 1; i++)
+            {
+                for (var j = 0; j < right_choose.Length - 1; j++)
+                {
+                    if (input_ball[i] == right_choose[j])
+                    {
+                        right_ball[i] = true;
+                        break;
+                    }
+                    else
+                    {
+                        right_ball[i] = false;
+                    }
+                }
+            }
             return right_ball;
         }
     }
