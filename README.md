@@ -1,8 +1,18 @@
 # LotteryTicket
 
-> C Sharp 期末项目双色球
+> C Sharp 项目双色球
 
 Author(作者) : susmote
+
+<br>
+
+***觉得项目对你有帮助的话记得点上面的Star:star:***
+
+![1528891347750](images/1528891347750.png)
+
+
+
+<br>
 
 > 未经授权不可随意传播，建议自己写，用双手成就你们的梦想
 
