@@ -71,6 +71,7 @@ namespace LotteryTicket_easy
                     {
                         while (true)
                         {
+                            Console.WriteLine("请输入第{0}个球",i);
                             int_red_ball[i - 1] = Convert.ToInt32(Console.ReadLine());
                             if (int_red_ball[i - 1] < 1 || int_red_ball[i - 1] > 33)
                             {
@@ -165,7 +166,10 @@ namespace LotteryTicket_easy
                         Console.Write(ball);
                         out_word("\t");
                     }
-                    for (int i = 0; i < goal_ball.Length; i++)
+                    out_line();
+                    out_word("红球中奖号码如下");
+                    out_line();
+                    for (int i = 0; i < goal_ball.Length-1; i++)
                     {
                         if (goal_ball[i] == true)
                         {
@@ -173,6 +177,22 @@ namespace LotteryTicket_easy
                             out_word("\t");
                         }
                     }
+                    if (goal_ball[goal_ball.Length - 1] == true)
+                    {
+                        out_word("蓝球中奖号码如下");
+                        out_line();
+                        out_word(input_ball[goal_ball.Length - 1]);
+                    }
+                    else 
+                    {
+                        out_line();
+                        out_word("很遗憾,篮球没有中奖");
+                    }
+                    out_line();
+                    out_word("按Enter键判断自己是否获奖");
+                    out_line();
+                    Console.ReadKey();
+                    out_word(luckFunc.judge_goal(goal_ball));
                     Console.ReadKey();
                     break;
                 }
@@ -238,6 +258,20 @@ namespace LotteryTicket_easy
                     {
                         Console.Write(ball);
                         out_word("\t");
+                    }
+                    out_line();
+                    out_word("按Enter键判断自己是否获奖");
+                    out_line();
+                    var key = Convert.ToString(Console.ReadKey().Key);
+                    if (key == "UpArrow")
+                    {
+                        out_line();
+                        out_word("恭喜你通过漏洞,获得特等奖,请到前台领取一箱过期酸奶");
+                    }
+                    else 
+                    {
+                        out_line();
+                        out_word(luckFunc.judge_goal(goal_ball));
                     }
                     Console.ReadKey();
                     break;

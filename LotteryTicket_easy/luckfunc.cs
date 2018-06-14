@@ -85,5 +85,68 @@ namespace LotteryTicket_easy
             }
             return right_ball;
         }
+
+        //判断获取几等奖,根据网上规则
+        public string judge_goal(bool[] input_goal)
+        {
+            var red_count = 0;
+            var blue_count = 0; 
+            for (var i = 0; i < input_goal.Length - 1; i++)
+            {
+                if (input_goal[i])
+                {
+                    red_count++;
+                }
+            }
+            if (input_goal[input_goal.Length - 1])
+            {
+                blue_count = 1;
+            }
+            switch (red_count)
+            {
+                case 1:
+                    return "六等奖";
+                case 2:
+                    return "六等奖";
+                case 3:
+                    if (blue_count == 1)
+                    {
+                        return "五等奖";
+                    }
+                    else 
+                    {
+                        return "未获奖";
+                    }
+                case 4:
+                    if (blue_count == 1)
+                    {
+                        return "四等奖";
+                    }
+                    else
+                    {
+                        return "五等奖";
+                    }
+                case 5:
+                    if (blue_count == 1)
+                    {
+                        return "三等奖";
+                    }
+                    else
+                    {
+                        return "四等奖";
+                    }
+                case 6:
+                    if (blue_count == 1)
+                    {
+                        return "一等奖";
+                    }
+                    else
+                    {
+                        return "二等奖";
+                    }
+                default:
+                    return "未获奖";
+            }
+        }
     }
 }

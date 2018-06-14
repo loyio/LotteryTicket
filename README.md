@@ -165,3 +165,61 @@ var index = random.Next(blue_ball.Length);
 res_blue_ball = blue_ball[index];
 ```
 
+<br>
+
+##### 2.对程序呈现效果进行修饰
+
+###### ①. 绘制控制台边框
+
+> 这个已经在我的win10平台上实现，但是机房win7会出现很多bug，所以提交作品中不加修饰
+
+效果如下图
+
+![1528979068596](images/1528979068596.png)
+
+***边框给了一种更好的视觉效果***
+
+在这里我使用的是制表符，通过嵌套循环生成界面边框
+
+实现原理介绍:
+
+1. 使用了C#自带的`Console`命名空间中的方法，`Console.setCursorPosition`可以用来设置控制台程序中光标的位置，从而实现在控制台程序中尽情作画
+2. 为了使程序更加具有逻辑性，以及提升代码的重构性，我使用了多层嵌套循环判断，通过这种操作，可以使程序适应多种情况的变动，减少之后Coding的代码量，也就是避免了重复造轮子的现象
+3. 对窗口属性进行了适应，可以根据窗口的大小自动生成边框，在这里我使用的是`Console`类中的`Console.WindowHeight`和`Console.WindowWidth`,这个可以直接获取当前窗口的大小
+
+<br>
+
+部分循环代码如下
+
+```c#
+//绘制边框
+for (var i = 0; i <= Console.WindowHeight; i++)
+{
+    if (i == 0)
+    {
+        Console.SetCursorPosition(0, i);
+        for (var j = 1; j <= Console.WindowWidth-1; j++)
+        {
+            if (j == 1)
+            {
+                Console.Write('╔');
+                continue;
+            }else if (j == Console.WindowWidth-1)
+            {
+                Console.Write("╗");
+                continue;
+            }
+            Console.Write("═");
+        }
+    }
+    else if (i == Console.WindowHeight - 2)
+    {
+......
+```
+
+
+
+
+
+
+
