@@ -71,12 +71,10 @@ namespace LotteryTicket
                         {
                             Console.SetCursorPosition(j-1, i);
                             Console.Write('║');
-                            continue;
                         }else if (j == Console.WindowWidth-1)
                         {
                             Console.SetCursorPosition(j-1, i);
                             Console.Write("║");
-                            continue;
                         }
                     }
                 }

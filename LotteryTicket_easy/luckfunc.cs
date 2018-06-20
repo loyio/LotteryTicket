@@ -44,7 +44,6 @@ namespace LotteryTicket_easy
         {
             var tem_blue_ball = new int[16];
             var blue_ball = new string[16];
-            var res_blue_ball = "01";
             for (var i = 1; i <= tem_blue_ball.Length; i++)
             {
                 tem_blue_ball[i - 1] = i;
@@ -54,7 +53,7 @@ namespace LotteryTicket_easy
             Console.ForegroundColor = ConsoleColor.Blue;
             var random = new Random();
             var index = random.Next(blue_ball.Length);
-            res_blue_ball = blue_ball[index];
+            var res_blue_ball = blue_ball[index];
             return res_blue_ball;
         }
 
@@ -64,9 +63,13 @@ namespace LotteryTicket_easy
             var right_ball = new bool[7];
 
             //判断蓝色球是否正确
-            if (input_ball[6] == right_choose[6]) 
+            if (input_ball[6] == right_choose[6])
             {
                 right_ball[6] = true;
+            }
+            else 
+            {
+                right_ball[6] = false;
             }
             for (var i = 0; i < input_ball.Length - 1; i++)
             {

@@ -217,9 +217,81 @@ for (var i = 0; i <= Console.WindowHeight; i++)
 ......
 ```
 
+###### ②.在程序中加入了一定的颜色和符号
 
+> 使程序更加的具有可视性，对于程序的整体美观提高了一定高度
 
+部分效果如下
 
+![颜色和符号](images/1529370009899.png)
 
+这样使整个程序的结构更加的清晰，使用者也很清楚自己的选号情况，总而言之，大大的提升了使用者的体验感觉
 
+<br>
+
+控制台程序中的输入添加颜色，运用了自带的`Console`类中的`ForegroundColor`和`BackgroundColor`,他们的值是`ConsoleColor`中的变量,其中有很多种常用的颜色
+
+- `ForegroundColor` : 代表的是前置颜色,或者说是表面的颜色,再通俗一点也就是输出文字的颜色
+- `BackgroundColor` : 代表的是背景颜色,一般的控制台程序都是黑色的背景颜色,我在自己Win10版的程序中运用了白色的背景颜色,这样显得控制台程序也不是那么的千篇一律,也是可以做出一种高端的感觉,当然纯属于自己的想法
+- `ConsoleColor` : 这个类中有很多常用的颜色,例如我上面做双色球所用到的蓝色和红色,分别可以用`ConsoleColor.Red`和`ConsoleColor.Blue`来表示,但是需要注意的是一旦改变了，就一直会是这种颜色,所以必须要随时改变回去,如我的主体颜色,白色
+
+<br>
+
+我定义的输入红蓝球的部分代码如下
+
+```c#
+public void input_redball()
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.Write("●");
+
+}
+public void input_blueball()
+{
+    Console.ForegroundColor = ConsoleColor.Blue;
+    Console.Write("●");
+}
+
+public void input_title(string title)
+{
+    Console.ForegroundColor = ConsoleColor.Black;
+    Console.Write(title);
+}
+```
+
+> 分别代表了输出红球、篮球、和标题的函数方法，这样使得程序具有可重用性，也就是不需要每次都在程序中写一遍这样的代码,使用时直接调用函数即可
+
+<br>
+
+<br>
+
+##### 3.获奖判断方法的实现
+
+> 在判断获奖号码时，我同样是定义了一个函数去判断，优点就不用我再去说了
+
+这个函数所需要的形式参数是自己买的号（包括自选和机选）,以及最终开奖的号码，两个参数都是`string[]`（字符串数组）类型的，返回的值是一个`bool[]`（布尔数组）类型的，代表的是买的号中奖与否的判定结果，这个号中奖了则标记为`true`，反之为`false`
+
+①.首先判断蓝色球是否中奖，这里的原因是因为蓝色球只有一个，而红色球有6个需要判断，判断蓝色球后，就可以专注于后续红色球的判断
+
+②.红色球中奖的判断运用了两个`for`循环,用每个买的号的球与开奖号球做比较,如果这个买的号有与中奖号球相同，那么则标记为`true`，这样就很顺畅的完成了真个判断中奖的功能
+
+部分代码如下
+
+```c#
+for (var i = 0; i < input_ball.Length - 1; i++)
+{
+    for (var j = 0; j < right_choose.Length - 1; j++)
+    {
+        if (input_ball[i] == right_choose[j])
+        {
+            right_ball[i] = true;
+            break;
+        }
+        else
+        {
+            right_ball[i] = false;
+        }
+    }
+}
+```
 

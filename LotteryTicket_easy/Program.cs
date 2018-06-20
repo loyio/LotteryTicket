@@ -51,6 +51,11 @@ namespace LotteryTicket_easy
                 Console.Write("{0:D2}  ", blue_ball[i - 1]);
             }
             out_line();
+            out_word("温馨提示: 小赌怡情,大赌伤身");
+            out_line();
+            out_word("按Enter键继续");
+            Console.ReadKey();
+            out_line();
             out_word("请输入你需要进行的操作");
             out_word("1:手动选号\t 2:自动选号");
             out_line();
@@ -77,13 +82,11 @@ namespace LotteryTicket_easy
                             {
                                 out_word("请检查你的输入，你输入的值不在范围之中，请重新输入");
                                 out_line();
-                                continue;
                             }
                             else if (used_number[int_red_ball[i - 1]])
                             {
                                 out_word("这个号码已经选过了，不能重复选取");
                                 out_line();
-                                continue;
                             }
                             else 
                             {
@@ -103,7 +106,6 @@ namespace LotteryTicket_easy
                         {
                             out_word("请检查你的输入，你输入的值不在范围之中，请重新输入");
                             out_line();
-                            continue;
                         }
                         else
                         {
@@ -161,32 +163,16 @@ namespace LotteryTicket_easy
                     out_line();
                     Console.ReadKey();
                     var goal_ball = luckFunc.compare_right(input_ball, right_ball);
-                    foreach (var ball in goal_ball)
-                    {
-                        Console.Write(ball);
-                        out_word("\t");
-                    }
                     out_line();
-                    out_word("红球中奖号码如下");
+                    out_word("中奖的号码如下");
                     out_line();
                     for (int i = 0; i < goal_ball.Length-1; i++)
                     {
-                        if (goal_ball[i] == true)
+                        if (goal_ball[i])
                         {
                             out_word(input_ball[i]);
                             out_word("\t");
                         }
-                    }
-                    if (goal_ball[goal_ball.Length - 1] == true)
-                    {
-                        out_word("蓝球中奖号码如下");
-                        out_line();
-                        out_word(input_ball[goal_ball.Length - 1]);
-                    }
-                    else 
-                    {
-                        out_line();
-                        out_word("很遗憾,篮球没有中奖");
                     }
                     out_line();
                     out_word("按Enter键判断自己是否获奖");
@@ -254,10 +240,13 @@ namespace LotteryTicket_easy
                     out_line();
                     Console.ReadKey();
                     var goal_ball = new_luckfunc.compare_right(input_ball, right_ball);
-                    foreach (var ball in goal_ball)
+                    for (var i = 1; i < goal_ball.Length-1;i++)
                     {
-                        Console.Write(ball);
-                        out_word("\t");
+                        if (goal_ball[i])
+                        {
+                            Console.Write(input_ball[i]);
+                            out_word("\t");
+                        }
                     }
                     out_line();
                     out_word("按Enter键判断自己是否获奖");
@@ -280,7 +269,6 @@ namespace LotteryTicket_easy
                 {
                     out_word("请输入正确的操作数字");
                     out_line();
-                    continue;
                 }
             }
         }
